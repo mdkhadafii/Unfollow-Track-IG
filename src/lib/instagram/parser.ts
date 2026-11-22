@@ -124,8 +124,9 @@ function usernamesFromRows(rows: unknown[]): { usernames: string[]; ignored: num
         foundForRow = true;
       }
     }
-    if (!foundForRow && typeof record.title === "string" && normalizeUsername(record.title)) {
-      usernames.push(normalizeUsername(record.title)!);
+    const titleUsername = typeof record?.title === "string" ? normalizeUsername(record.title) : null;
+    if (!foundForRow && titleUsername) {
+      usernames.push(titleUsername);
       foundForRow = true;
     }
     if (!foundForRow) ignored += 1;

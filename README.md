@@ -40,6 +40,18 @@ npm run build
 
 The static site output is written to `out/`.
 
+## Deploy to Netlify
+
+This repository is configured for a static Netlify deploy. In Netlify, choose **Add new project → Import an existing project**, connect GitHub, and select `mdkhadafii/Unfollow-Track-IG`. Keep `main` as the production branch and publish the project. Netlify reads `netlify.toml` for the build settings:
+
+- Build command: `npm run build`
+- Publish directory: `out`
+- Node.js: 22
+
+After the first deploy, share the site's `*.netlify.app` address. If Netlify created the project with private visibility, change its visibility to public so visitors outside your team can open it. New commits pushed to `main` will trigger another deploy.
+
+Each visitor's files and saved snapshots stay in that visitor's browser. The app has no shared account system or cloud storage, so data does not follow someone to another browser or device.
+
 ## Export data from Instagram
 
 In Instagram's Accounts Center, export **Followers and Following** as **JSON**. Download the archive to your device, then import its ZIP file into UnfollowTrack. You can also choose the relevant followers and following JSON files separately.
