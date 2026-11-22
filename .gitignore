@@ -1,0 +1,27 @@
+node_modules/
+.next/
+out/
+.vercel/
+.sites-checkout/
+.sites-checkout-*/
+.sites-runtime/
+coverage/
+*.tsbuildinfo
+
+# Local credentials and environment settings
+.env*
+!.env.example
+
+# Local Site configuration; hosting.json is the tracked project manifest
+.openai/site.local.json
+
+# Local editor and operating system files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Package manager and runtime logs
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
