@@ -93,8 +93,10 @@ function usernameFromHref(href: string): string | null {
   try {
     const url = new URL(href);
     if (!/(^|\.)instagram\.com$/i.test(url.hostname)) return null;
-    const first = url.pathname.split("/").filter(Boolean)[0];
-    return first ? normalizeUsername(first) : null;
+    const pathSegments = url.pathname.split("/").filter(Boolean);
+    const firstSegment = pathSegments[0];
+    const profileSegment = firstSegment?.toLowerCase() === "_u" ? pathSegments[1] : firstSegment;
+    return profileSegment ? normalizeUsername(profileSegment) : null;
   } catch {
     return null;
   }
@@ -117,8 +119,12 @@ function usernamesFromRows(rows: unknown[]): { usernames: string[]; ignored: num
     }
     let foundForRow = false;
     for (const entry of parsed.data) {
-      const username = (entry.value ? normalizeUsername(entry.value) : null) ??
-        (entry.href ? usernameFromHref(entry.href) : null);
+      const valueUsername = entry.value ? normalizeUsername(entry.value) : null;
+      const hrefUsername = entry.href ? usernameFromHref(entry.href) : null;
+      const titleUsername = typeof record?.title === "string" ? normalizeUsername(record.title) : null;
+      const username = valueUsername && valueUsername !== "_u"
+        ? valueUsername
+        : hrefUsername ?? titleUsername;
       if (username) {
         usernames.push(username);
         foundForRow = true;
