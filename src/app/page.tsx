@@ -44,7 +44,7 @@ export default function HomePage() {
           <p className="hero-description">Bandingkan followers dan following dari data ekspor resmi Instagram. Tanpa password. Tanpa tebak-tebakan. Semuanya diproses langsung di browser.</p>
           <div className="hero-actions">
             <Link className="button button--primary button--large" href="/upload/"><Upload size={16} />Mulai analisis gratis</Link>
-            <Link className="button button--ghost button--large" href="#cara-kerja">Lihat cara kerja</Link>
+            <Link className="button button--ghost button--large" href="/cara-kerja/">Lihat cara kerja</Link>
           </div>
           <div className="hero-trust"><span><Check size={14} /> Tanpa login Instagram</span><i /><span><Check size={14} /> File tidak dikirim</span></div>
         </div>

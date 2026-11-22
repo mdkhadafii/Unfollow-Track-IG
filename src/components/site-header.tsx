@@ -11,7 +11,7 @@ export function SiteHeader() {
           <span>unfollow<span className="brand__accent">track</span></span>
         </Link>
         <nav className="main-nav" aria-label="Navigasi utama">
-          <Link href="/#cara-kerja">Cara Kerja</Link>
+          <Link href="/cara-kerja/">Cara Kerja</Link>
           <Link href="/privacy/">Privasi</Link>
           <Link href="/dashboard/">Dashboard</Link>
         </nav>
